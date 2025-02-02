@@ -11,5 +11,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 enable_testing()
 
+add_subdirectory(thirdparty)
 add_subdirectory(groups)
 add_subdirectory(applications)

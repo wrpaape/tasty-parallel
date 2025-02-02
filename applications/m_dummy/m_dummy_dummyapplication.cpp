@@ -18,7 +18,7 @@ struct DummyApplication {
     // the 'm_dummy' application.
 
     // CLASS METHODS
-    static int exec(int argc, char *argv[]);
+    static int exec(int argc, const char *const argv[]);
         // Execute an instance of the 'm_dummy' application with the specified
         // 'argc' and 'argv'.  Return '0' on success and a non-zero value
         // otherwise.
@@ -29,7 +29,7 @@ struct DummyApplication {
                         // -----------------------
 
 // CLASS METHODS
-int DummyApplication::exec(int argc, char *argv[])
+int DummyApplication::exec(int argc, const char *const argv[])
 {
     for (int i = 0; i < argc; ++i)
         std::println("argv[{}]=\"{}\"", i, argv[i]);

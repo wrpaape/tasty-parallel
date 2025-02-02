@@ -1,22 +1,30 @@
 // m_dummy_dummyapplication.t.cpp                                     -*-C++-*-
 module;
 
-#include <print>
+#include <array>
+
+#include <gtest/gtest.h>
 
 module tasty:m_dummy.dummyapplication.t;
 
 import :m_dummy.dummyapplication;
 
+namespace {
 using namespace tasty;
 
-int main(int argc, char *argv[])
+// TESTS
+TEST(DummyApplicationTest, ExecSucceedsWithWellFormedArgs)
 {
-    int exitStatus = 0;
-    const int result = m_dummy::DummyApplication::exec(argc, argv);
-    if (result != 0) {
-        std::println(stderr, "exec() failed: (expected: {}, actual: {})",
-                     0, result);
-        exitStatus = 1;
-    }
-    return exitStatus;
+    // WHEN the 'exec()' method is called with a non-negative 'argc' and
+    // 'argv', a null-terminated list of 'argc' null-terminated strings,
+    //
+    // THEN '0' is returned.
+
+    const char *const argv[] = { "foo", "bar", nullptr };
+    const int         argc   = std::size(argv) - 1;
+    const int         result = m_dummy::DummyApplication::exec(argc, argv);
+
+    EXPECT_EQ(0, result);
 }
+
+}  // close unnamed namespace

@@ -1,25 +1,32 @@
 // pars_dummy_subordinate.t.cpp                                       -*-C++-*-
 module;
 
-#include <print>
 #include <string>
+
+#include <gtest/gtest.h>
 
 module tasty:pars.dummy.subordinate.t;
 
 import :pars.dummy.subordinate;
 
+namespace {
 using namespace tasty;
 
-int main(int argc, char *argv[])
+// TESTS
+TEST(Dummy_SubordinateTest, NameReturnsNamePassedAtConstruction)
 {
-    int exitStatus = 0;
-    const std::string expectedName("bar");
-    const pars::Dummy_Subordinate dummy(expectedName);
-    const std::string& actualName = dummy.name();
-    if (expectedName != actualName) {
-        std::println(stderr, "name() failed: (expected: {}, actual: {})",
-                     expectedName, actualName);
-        exitStatus = 1;
-    }
-    return exitStatus;
+    // GIVEN a 'Dummy_Subordinate' object constructed with a name,
+    //
+    // WHEN the 'name()' method is called,
+    //
+    // THEN a non-modifiable reference to the name's value is returned.
+
+    const std::string expectedName("foo");
+    const pars::Dummy_Subordinate dummySubordinate(expectedName);
+
+    const std::string& actualName = dummySubordinate.name();
+
+    EXPECT_EQ(expectedName, actualName);
 }
+
+}  // close unnamed namespace

@@ -1,25 +1,32 @@
 // pars_dummy.t.cpp                                                   -*-C++-*-
 module;
 
-#include <print>
 #include <string>
+
+#include <gtest/gtest.h>
 
 module tasty:pars.dummy.t;
 
 import :pars.dummy;
 
+namespace {
 using namespace tasty;
 
-int main(int argc, char *argv[])
+// TESTS
+TEST(DummyTest, NameReturnsNamePassedAtConstruction)
 {
-    int exitStatus = 0;
+    // GIVEN a 'Dummy' object constructed with a name,
+    //
+    // WHEN the 'name()' method is called,
+    //
+    // THEN a non-modifiable reference to the name's value is returned.
+
     const std::string expectedName("foo");
     const pars::Dummy dummy(expectedName);
+
     const std::string& actualName = dummy.name();
-    if (expectedName != actualName) {
-        std::println(stderr, "name() failed: (expected: {}, actual: {})",
-                     expectedName, actualName);
-        exitStatus = 1;
-    }
-    return exitStatus;
+
+    EXPECT_EQ(expectedName, actualName);
 }
+
+}  // close unnamed namespace

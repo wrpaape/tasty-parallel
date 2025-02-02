@@ -14,7 +14,13 @@ target_sources(
     FILE_SET tasty_m_dummy_dummyapplication_t TYPE CXX_MODULES FILES
         m_dummy_dummyapplication.t.cpp
 )
-target_link_libraries(m_dummy_dummyapplication.t PRIVATE m_dummy_lib)
+target_link_libraries(
+    m_dummy_dummyapplication.t
+    PRIVATE
+    GTest::gtest
+    GTest::gtest_main
+    m_dummy_lib
+)
 add_test(
     NAME    m_dummy_dummyapplication.t
     COMMAND $<TARGET_FILE:m_dummy_dummyapplication.t>
