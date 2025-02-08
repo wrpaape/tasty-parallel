@@ -1,11 +1,11 @@
-// m_dummy_dummyapplication.t.cpp                                     -*-C++-*-
+// m_dummy_dummyapplication.g.cpp                                     -*-C++-*-
 module;
 
 #include <array>
 
 #include <gtest/gtest.h>
 
-module tasty:m_dummy.dummyapplication.t;
+module tasty:m_dummy.dummyapplication.g;
 
 import :m_dummy.dummyapplication;
 

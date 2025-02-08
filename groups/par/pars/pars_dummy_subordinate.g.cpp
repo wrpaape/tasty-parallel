@@ -1,11 +1,11 @@
-// pars_dummy_subordinate.t.cpp                                       -*-C++-*-
+// pars_dummy_subordinate.g.cpp                                       -*-C++-*-
 module;
 
 #include <string>
 
 #include <gtest/gtest.h>
 
-module tasty:pars.dummy.subordinate.t;
+module tasty:pars.dummy.subordinate.g;
 
 import :pars.dummy.subordinate;
 

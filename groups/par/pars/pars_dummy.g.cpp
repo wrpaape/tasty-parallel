@@ -1,11 +1,11 @@
-// pars_dummy.t.cpp                                                   -*-C++-*-
+// pars_dummy.g.cpp                                                   -*-C++-*-
 module;
 
 #include <string>
 
 #include <gtest/gtest.h>
 
-module tasty:pars.dummy.t;
+module tasty:pars.dummy.g;
 
 import :pars.dummy;
 

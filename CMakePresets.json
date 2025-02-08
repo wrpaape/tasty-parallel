@@ -17,6 +17,10 @@
         "CMAKE_BUILD_TYPE": {
           "type": "STRING",
           "value": "Debug"
+        },
+        "BENCHMARK_ENABLE_TESTING": {
+          "type": "BOOL",
+          "value": "OFF"
         }
       }
     }
